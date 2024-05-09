@@ -1,11 +1,11 @@
 import './App.css';
-import LoginPage from './pages/Login';
+import AppNavigater from './navigater/AppNavigater';
+
 
 function App() {
   return (
     <div className="App">
-      <h1>jdsfkjsld</h1>
-      <LoginPage/>
+      <AppNavigater/>
     </div>
   );
 }

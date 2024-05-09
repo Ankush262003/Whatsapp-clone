@@ -11,6 +11,7 @@ const Dialog = (props) =>{
         contentComponent, actionComponent,
         disableEnforceFocus = true,
         children, 
+        maxWidth="sm",
         sx,
         ...resetProps
     } = props
@@ -22,15 +23,14 @@ const Dialog = (props) =>{
          clone={false}
          disableEnforceFocus={""}
          fullWidth
-         maxWidth="md"
+         maxWidth={maxWidth}
          aria-labelledby=""
-        //  {...resetProps}
+         {...resetProps}
         >
             <Stack sx={{
                padding:"10px 10px",
-               ...sx 
             }}>
-                <DialogTitle className={classes.DialogTitle}
+                {/* <DialogTitle className={classes.DialogTitle}
                 sx={{
                     padding:"0px"
                     }}
@@ -41,7 +41,7 @@ const Dialog = (props) =>{
                     <IconButton>
                         <Close/>
                     </IconButton>
-                </DialogTitle>
+                </DialogTitle> */}
                 <DialogContent sx={{
                     padding:"0px"
                 }}>
