@@ -4,8 +4,8 @@ import MBox  from "@mui/material/Box";
 const Box = (props)=>{
     const boxStyle = {
         backgroundColor:"white",
-        borderRedius:"10px",
-        padding:"10px",
+        margin:0,
+        padding:0,
         ...props,
     }
 

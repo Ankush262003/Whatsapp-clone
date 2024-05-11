@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { Dialog as MDialog, DialogTitle, IconButton, Paper, DialogContent, DialogActions } from "@mui/material";
-import { Close, Margin } from "@mui/icons-material";
+import { Close, Height, Margin, Widgets } from "@mui/icons-material";
 import {makeStyles, createStyles} from "@mui/styles";
 import Stack from "./Stack";
 
@@ -11,46 +11,52 @@ const Dialog = (props) =>{
         contentComponent, actionComponent,
         disableEnforceFocus = true,
         children, 
-        maxWidth="sm",
-        sx,
+        width = "100%",
+        height="100%",
         ...resetProps
     } = props
+    console.log("--->", props)
+
+    // layout style of dialog:
+    const dialogStyle = {
+        maxWidth: width,
+        maxHeight:height,
+
+    }
 
     const classes = useStyles()
+
     return(<>
         <MDialog
          open={true}
          clone={false}
-         disableEnforceFocus={""}
+         disableEnforceFocus= "1"
          fullWidth
-         maxWidth={maxWidth}
+         PaperProps={{sx:dialogStyle}}
          aria-labelledby=""
          {...resetProps}
         >
-            <Stack sx={{
-               padding:"10px 10px",
-            }}>
-                {/* <DialogTitle className={classes.DialogTitle}
-                sx={{
-                    padding:"0px"
-                    }}
-                    >
-                    <div>
-                    Dialog Title
-                    </div>
-                    <IconButton>
-                        <Close/>
-                    </IconButton>
-                </DialogTitle> */}
-                <DialogContent sx={{
-                    padding:"0px"
-                }}>
-                    {contentComponent && contentComponent()}
-                </DialogContent>
-                <DialogActions>
+            {/* <DialogTitle className={classes.DialogTitle}
+            sx={{
+                padding:"0px"
+                }}
+                >
+                <div>
+                  Dialog Title
+                </div>
+                <IconButton>
+                    <Close/>
+                </IconButton>
+            </DialogTitle> */}
 
-                </DialogActions>
-            </Stack>
+            <DialogContent>
+                {contentComponent && contentComponent()}
+            </DialogContent>
+
+            <DialogActions>
+
+            </DialogActions>
+           
         </MDialog>     
     </>)
     
@@ -58,23 +64,14 @@ const Dialog = (props) =>{
 
 
 const useStyles = makeStyles((theme) =>
-   createStyles({
-    // root:{
-    //     padding:"0px",
-    // },
-    // Paper:{
-    //     Margin:15,
-    //     width:"100%",
-    // },
+    createStyles({
 
-    // DialogTitle style css:
-    DialogTitle: {
-        display:"flex", justifyContent:"space-between"
-    }
+        // DialogTitle style css:
+        DialogTitle: {
+            display:"flex", justifyContent:"space-between"
+        }
 
-
-
-   })
+    })
 )
 
 export default React.memo(Dialog)

@@ -1,10 +1,10 @@
 import React from "react";
-import LoginDialog from "../../components/login/LoginDialog";
+import Login from "../../components/login/Login";
 
 const LoginContainer = () =>{
     return(
         <>
-          <LoginDialog/>
+          <Login/>
         </>
     )
 }
