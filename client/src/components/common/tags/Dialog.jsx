@@ -3,25 +3,43 @@ import { Dialog as MDialog, DialogTitle, IconButton, Paper, DialogContent, Dialo
 import { Close, Height, Margin, Widgets } from "@mui/icons-material";
 import {makeStyles, createStyles} from "@mui/styles";
 import Stack from "./Stack";
+import Box from "./Box";
 
 const Dialog = (props) =>{
     const  {
-        title, 
+        // DialogTitle:
+        title = "", 
+        dialogTitleVisibility = "true", // hide or show dialogTitle 
+        dialogTitleStyle,               // take sx style of DialogTitelStyle
+
+        // DialogContent
+        contentComponent,   // take ui code or content
+        dialogContentStyle, // take sx style of DialogContaint
+
+        // DialogActions:
+        dialogActionsStyle,
+        actionComponent,
+
+
         onOpen, onClose,
-        contentComponent, actionComponent,
         disableEnforceFocus = true,
         children, 
+
+        // MDialog:
+        dialogStyle,
         width = "100%",
         height="100%",
         ...resetProps
     } = props
-    console.log("--->", props)
+
+    console.log("dialogTitleVisibility-->", dialogTitleVisibility)
+
 
     // layout style of dialog:
-    const dialogStyle = {
+    const mainBodyStyle = {
         maxWidth: width,
         maxHeight:height,
-
+        ...dialogStyle
     }
 
     const classes = useStyles()
@@ -30,38 +48,33 @@ const Dialog = (props) =>{
         <MDialog
          open={true}
          clone={false}
-         disableEnforceFocus= "1"
+         disableEnforceFocus= ""
          fullWidth
-         PaperProps={{sx:dialogStyle}}
+         PaperProps={{sx:mainBodyStyle}}
          aria-labelledby=""
          {...resetProps}
-        >
-            {/* <DialogTitle className={classes.DialogTitle}
-            sx={{
-                padding:"0px"
-                }}
-                >
-                <div>
-                  Dialog Title
-                </div>
-                <IconButton>
-                    <Close/>
-                </IconButton>
-            </DialogTitle> */}
 
-            <DialogContent>
+        >
+            {/* {dialogTitleVisibility ? (
+                <DialogTitle className={classes.dialogTitle} sx={{ ...dialogTitleStyle }}>
+                    <Box>{title}</Box>
+                    <IconButton onClick={onClose}><Close /></IconButton>
+                </DialogTitle>
+            ) : null} */}
+
+            
+            <DialogContent sx={{...dialogContentStyle}} >
                 {contentComponent && contentComponent()}
             </DialogContent>
 
-            <DialogActions>
-
+            <DialogActions sx={{...dialogActionsStyle}} >
+                {actionComponent && actionComponent()}
             </DialogActions>
            
         </MDialog>     
     </>)
     
 }
-
 
 const useStyles = makeStyles((theme) =>
     createStyles({

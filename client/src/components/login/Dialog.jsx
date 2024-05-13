@@ -14,21 +14,12 @@ import Box from "../common/tags/Box";
 import { makeStyles } from "@mui/styles";
 
 
-const Dialog = () => {
+const Dialog = (props) => {
+    const {
+        onLoginSuccess,
+        onLoginError,
+    } = props
  const classes = useStyles();
-
- // Login success controller:
- const onLoginSuccess = (response) =>{
-
-     console.log("success->", jwtDecode(response.credential))
- }
-
-
- // Login error handeler
- const onLoginError = (response) =>{
-    console.log("success->", response)
- }
-
 
  return ( 
     <>

@@ -12,7 +12,7 @@ import Box from "../common/tags/Box";
 
 
 
-const Login = () =>{
+const LoginHeader = () =>{
 
    const classes = useStyles();
 
@@ -24,33 +24,9 @@ const Login = () =>{
          }}>
             <Header>
                <Toolbar>
-                 hello
+                 
                </Toolbar>
             </Header> 
-
-            {/* landin dialog */}
-            <CommonDialog
-               height="100%"
-               width="75%"
-               
-               sx={{marginTop:"100px", overflow:"hidden"}}
-               contentComponent = {()=>{
-                  return( <Dialog/> )
-                     
-               }}    
-            />
-
-            {/* <Dialog
-               sx={{
-                  maringTop:"200px"
-               }}
-               // contentComponent = {()=>{
-               //    return
-               //       // <Dialog/>
-                  
-               // }}           
-           />   */}
-
          </Box>
       </>
    )
@@ -96,4 +72,4 @@ const Header = styled(AppBar)(({theme})=>({
 // }));
 
 
-export default Login
+export default LoginHeader
