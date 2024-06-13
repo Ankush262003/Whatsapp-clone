@@ -4,14 +4,14 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import AppLayout from "../layout/AppLayout";
 
 // Pages:
-import LoginPage from "../pages/Login";
+import Auth from "../pages/Auth";
 
 
 const AppNavigater = () =>{
     return(
         <Routes>
             // Public routes:
-            <Route path="/login" element={<LoginPage/>}/>
+            <Route path="/login" element={<Auth/>}/>
         
             // Private routes:
             <Route path="/" element={<AppLayout/>}>
