@@ -1,10 +1,10 @@
 // css file
 import './App.css';
 
-// router
-import AppNavigater from './navigater/AppNavigater';
+// Parent router
+import AppNavigator from './navigator/AppNavigator';
 
-// google outh provider
+// google oauth provider
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <GoogleOAuthProvider clientId={clientId}>
-        <AppNavigater/>
+        <AppNavigator auth={false} /> 
       </GoogleOAuthProvider>
     </div>
   );
