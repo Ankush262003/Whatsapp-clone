@@ -10,15 +10,10 @@ import Auth from "../pages/Auth";
 const AppNavigater = () =>{
     return(
         <Routes>
-            // Public routes:
-            <Route path="/login" element={<Auth/>}/>
-        
-            // Private routes:
-            <Route path="/" element={<AppLayout/>}>
-                <Route index element={<Navigate to="/" replace/>}/>
-                
-            </Route>
-          
+           <Route path="/" element={<AppLayout/>}>
+             <Route index element={<Navigate to="/login" replace/>}/>
+             <Route path="/login" element={<Auth/>}/>
+           </Route>
         </Routes>
     )
 }
