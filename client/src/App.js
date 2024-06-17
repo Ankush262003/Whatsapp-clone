@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <GoogleOAuthProvider clientId={clientId}>
-        <AppNavigator auth={false} /> 
+        <AppNavigator auth={true} /> 
       </GoogleOAuthProvider>
     </div>
   );

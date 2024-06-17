@@ -3,6 +3,9 @@ import { Route, Routes } from "react-router-dom";
 // Layout:
 import AppLayout from "../layout/AppLayout";
 
+
+import ReferenceContainer from "../containers/ReferenceContainer";
+
 // Pages:
 import Auth from "../pages/Auth";
 import { PrivateRoute, PublicRoute } from "../helper/route";
@@ -17,10 +20,17 @@ const AppNavigator = ({ auth }) => {
       />
 
       {/* 2:- Private route */}
-      <Route exact path="/" element={<AppLayout/>}>
+      <Route exact path="/" element={<AppLayout />}>
         <Route
           index
           element={<PrivateRoute isAuth={auth} Component={""} replace />}
+        />
+
+        <Route
+          path="/reference"
+          element={
+            <PrivateRoute isAuth={auth} Component={<ReferenceContainer />} />
+          }
         />
       </Route>
 
@@ -31,5 +41,3 @@ const AppNavigator = ({ auth }) => {
 };
 
 export default AppNavigator;
-
-

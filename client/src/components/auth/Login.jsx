@@ -1,10 +1,12 @@
 import React from "react";
 
+// @mui
+import { Grid } from "@mui/material";
+
 // common components:
 import Stack from "../common/Stack";
 import Box from "../common/Box";
 import Text from "../common/Text";
-import { Grid } from "@mui/material";
 
 const Login = () => {
   return (
@@ -17,7 +19,7 @@ const Login = () => {
         <Box
           sx={{
             maxWidth: "1000px",
-            margin: " -179px auto auto auto",
+            margin: " -190px auto auto auto",
           }}
         >
           <Box
